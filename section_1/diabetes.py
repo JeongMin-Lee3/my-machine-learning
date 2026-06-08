@@ -10,7 +10,8 @@ import numpy as np
 
 data = load_diabetes(as_frame=True)  # 당뇨 환자 442명, 특성 10개 (혈청 측정값 등), target : 1년 후 질병 진행 정도 (25~346)
 df = data.frame
-
+# target컬럼명을 degree로 변경
+df.rename(columns={'target': 'degree'}, inplace=True)
 df.to_csv("csv/diabetes.csv", index=False)
 
 # 타깃과 상관이 큰 순 (대략)
