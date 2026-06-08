@@ -114,3 +114,10 @@ plt.ylabel("잔차")
 plt.title("잔차 그림")
 plt.grid(True)
 plt.show()
+
+# 피처간의 상관관계 확인
+sns.heatmap(df[['배기량', '중량', '기통수', '연비']].corr(), annot=True, cmap='coolwarm')
+plt.title('피처간의 상관관계')
+plt.xlabel('피처')
+plt.ylabel('피처')
+plt.show()

@@ -26,15 +26,11 @@ result1 = predict_data(1.2)
 result2 = predict_data(1.3)
 result3 = predict_data(1.4)
 
-print(result1)
+print(f'x=1.2일 때 예측 값: {result1}')
 # 이 위 결과는 리스트 형태인데 요소가 하나밖에 없으므로 [0]을 써서 첫번째 요소를 출력   
-print(result1[0])
-print(result2)
+print(f'x=1.3일 때 예측 값: {result2}')
 # 이 위 결과는 리스트 형태인데 요소가 하나밖에 없으므로 [0]을 써서 첫번째 요소를 출력
-print(result2[0])
-print(result3)
-# 이 위 결과는 리스트 형태인데 요소가 하나밖에 없으므로 [0]을 써서 첫번째 요소를 출력
-print(result3[0])
+print(f'x=1.4일 때 예측 값: {result3}')
 
 # 아니면 애초에 함수에서 리턴값에 [0]을 써서 첫번째 요소를 출력하게 하기
 # def predict_data(value : float) -> float:

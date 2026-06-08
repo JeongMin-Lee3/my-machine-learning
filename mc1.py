@@ -44,9 +44,9 @@ from sklearn.metrics import mean_squared_error, r2_score
 y_pred = model.predict(X)
 
 print('=======================================================')
-print('y:', y)
+print('y:', y) # 실제값
 print('=======================================================')
-print('y_pred:', y_pred)
+print('y_pred:', y_pred) # 예측값
 
 # MSE : 평균 제곱 오차(Mean Squared Error) 예측값과 실제값의 차이(오차)를 제곱한 후 평균을 낸 값입니다. = 절대크기
 # mse가 작을수록 예측값과 실제값의 차이가 작은 것을 의미합니다. 근데 작다고 다 좋은건 아니고, 모델의 복잡도에 따라 다름.
