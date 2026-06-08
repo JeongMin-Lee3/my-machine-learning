@@ -16,17 +16,14 @@ X = iris.data
 y = iris.target
 
 # 이진 분류에서는 두 클래스만 선택했었는데, 이번에는 세 클래스 모두 사용
-multi_mask = y < 3  # 클래스 0, 1, 2 모두 선택
-X_multi = X[multi_mask]
-y_multi = y[multi_mask]
 
 # 데이터 분리
-X_train, X_test, y_train, y_test = train_test_split(X_multi, y_multi, test_size=0.2, random_state=42)
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
 
 # 정규화
 scaler = StandardScaler()
-X_train = scaler.fit_transform(X_train)
-X_test = scaler.transform(X_test)
+X_train = scaler.fit_transform(X_train) # 훈련 데이터 정규화
+X_test = scaler.transform(X_test) # 테스트 데이터 정규화
 
 # Random Forest 모델 학습
 model = RandomForestClassifier(random_state=42)
@@ -47,9 +44,12 @@ model.fit(X_train, y_train)
 y_pred = model.predict(X_test)
 
 # 평가 결과 출력
-print("Accuracy:", accuracy_score(y_test, y_pred))
-print("\nClassification Report:\n", classification_report(y_test, y_pred))
-print("\nConfusion Matrix:\n", confusion_matrix(y_test, y_pred))
+print("Accuracy:", accuracy_score(y_test, y_pred))  # 정확도 : 1.0 ; 테스트 세트들을 전부 맞춘 것
+# 각 행(0, 1, 2) = Iris의 세 종(setosa, versicolor, virginica에 대응하는 클래스 번호). 각 열(precision, recall, f1-score) = 각 클래스에 대한 정밀도, 재현율, f1-score.
+print("\nClassification Report:\n", classification_report(y_test, y_pred)) 
+# 행 = 실제 정답(y_test), 열 = 모델 예측(y_pred) 
+print("\nConfusion Matrix:\n", confusion_matrix(y_test, y_pred)) # 대각선 (10, 9, 11): 맞춘 개수
+
 
 # 모델·스케일러 저장 (예측 시 둘 다 필요)
 joblib.dump(model, MODEL_PATH)
