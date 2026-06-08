@@ -1,3 +1,6 @@
+# 결정 트리 모델 학습
+# 학생들의 공부 시간과 시험 점수를 입력하면 합격 여부를 예측하는 모델을 만들어보자.
+
 import pandas as pd
 from sklearn.model_selection import train_test_split
 from sklearn.tree import DecisionTreeClassifier, export_text
@@ -43,6 +46,6 @@ plt.figure(figsize=(10, 8))
 tree.plot_tree(model, feature_names=['Study Hours', 'Exam Score'], class_names=['Fail', 'Pass'], filled=True)
 plt.show()
 
-# 텍스트 형태로 트리 출력
+# 텍스트 형태로 트리 규칙 출력
 tree_rules = export_text(model, feature_names=['Study Hours', 'Exam Score'])
 print(tree_rules)

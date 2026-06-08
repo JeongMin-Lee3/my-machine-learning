@@ -1,4 +1,4 @@
-# 와인 데이터셋을 이용한 Random Forest 모델 학습
+# 앙상블 분류 모델 : 와인 데이터셋을 이용한 랜덤 포레스트 모델 학습
 
 from sklearn.datasets import load_wine
 from sklearn.model_selection import train_test_split
