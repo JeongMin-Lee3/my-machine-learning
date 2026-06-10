@@ -1,0 +1,14 @@
+# 모델 파일 (용량 큼, GitHub 100MB 제한)
+*.pkl
+*.pk1
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# OS / IDE
+.DS_Store
+.vscode/
+.idea/

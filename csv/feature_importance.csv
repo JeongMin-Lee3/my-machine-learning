@@ -1,0 +1,16 @@
+feature,importance
+CO2(tCO2),0.9756582150741716
+Lagging_Current_Reactive.Power_kVarh,0.015685994189514545
+Lagging_Current_Power_Factor,0.005474123260812169
+Leading_Current_Power_Factor,0.0013172224963609036
+NSM,0.0010869182783749902
+Leading_Current_Reactive_Power_kVarh,0.00048565057622004343
+WeekStatus_Weekend,9.834860623729917e-05
+Load_Type_Maximum_Load,3.5537591896480846e-05
+Day_of_week_Tuesday,3.293023358920438e-05
+Load_Type_Medium_Load,2.8515454997507303e-05
+Day_of_week_Thursday,2.5155235766565666e-05
+Day_of_week_Wednesday,2.3750490204530168e-05
+Day_of_week_Monday,2.307615148208198e-05
+Day_of_week_Saturday,1.576662450091572e-05
+Day_of_week_Sunday,8.79573587101784e-06
