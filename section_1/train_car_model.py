@@ -1,3 +1,4 @@
+# 자동차 연비 예측 선형회귀모델 만들기
 import os
 
 import certifi
@@ -12,15 +13,15 @@ from sklearn.model_selection import train_test_split # 데이터 분리
 from sklearn.linear_model import LinearRegression # 모델
 from sklearn.metrics import mean_absolute_error, mean_squared_error, r2_score # 평가지표
 
-# # 1. 데이터 로드 및 전처리
+# 1. 데이터 로드 및 전처리
 # df = sns.load_dataset("mpg")
 
-# # df를 csv로 저장
+# df를 csv로 저장
 # df.to_csv('csv/car_data.csv', index=False)
 
 # 엑셀 파일로 불러와서 실습해보자
-df = pd.read_csv('csv/car_data_cleaned.csv')
-print(df['연비'].max()) # 연비 컬럼의 최대값 :46.6
+df = pd.read_csv('./csv/car_data_clean.csv')
+print(f'연비 컬럼의 최대값 : {df["연비"].max()}') # 연비 컬럼의 최대값 :46.6
 # print(df.head())
 # print("==============info==============")
 # print(df.info())
@@ -30,11 +31,11 @@ print(df['연비'].max()) # 연비 컬럼의 최대값 :46.6
 # # 결측치 확인
 # print(df.isnull().sum())
 
-# # 있다면 제거
+# 있다면 제거
 # df = df.dropna()
 # print(df.isnull().sum())
 
-# # 깨끗한 csv파일 저장
+# 깨끗한 csv파일 저장
 # df.to_csv('csv/car_data_cleaned.csv', index=False)
 
 
@@ -70,10 +71,10 @@ print("Root Mean Squared Error (RMSE):", rmse)
 # 모델 저장
 import joblib
 VERSION = '1.0.0'
-joblib.dump(model, f'models/car_model_ver_{VERSION}.pkl')
+joblib.dump(model, f'./models/car_model_ver_{VERSION}.pkl')
 
 # 모델 로드
-loaded_model = joblib.load(f'models/car_model_ver_{VERSION}.pkl')
+loaded_model = joblib.load(f'./models/car_model_ver_{VERSION}.pkl')
 
 # 임의의 값으로 예측 (학습 시와 동일하게 컬럼명있는 DataFrame으로 넣어 컬럼명·순서 일치)
 temp_X = pd.DataFrame([[307.0, 3504.0, 8]], columns=['배기량', '중량', '기통수'])

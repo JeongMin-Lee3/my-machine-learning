@@ -37,7 +37,7 @@ print(len(y_train))
 print(len(y_test))
 print("==========================================================")
 
-# 모델 학습
+# 선형 회귀 모델 학습
 model = LinearRegression()
 model.fit(X_train, y_train)
 

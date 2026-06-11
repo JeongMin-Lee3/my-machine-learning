@@ -18,19 +18,20 @@ plt.rcParams['axes.unicode_minus'] = False  # 마이너스 기호 깨짐 방지
 # 1. CSV 파일 불러오기
 df = pd.read_csv('csv/uci-secom.csv')  # 경로는 실제 위치에 맞게 수정
 # print(df.info()) # 592개 컬럼. 
+print(df.isnull().sum()) # 결측치 확인
 print("==========================================")
 
 # 2. 피처와 라벨 분리 (Time 컬럼 제거)
-X = df.drop(['Pass/Fail', 'Time'], axis=1)  # Time 컬럼도 제거
+X = df.drop(['Pass/Fail', 'Time'], axis=1)  # axis=1 : 열 방향 기준, Time 컬럼도 제거
 y = df['Pass/Fail']
 
 # 3. 결측치 처리 (평균 대체)
 imputer = SimpleImputer(strategy='mean')
-X_imputed = imputer.fit_transform(X)
+X_imputed = imputer.fit_transform(X) 
 
 # 4. 학습/테스트 분리
 X_train, X_test, y_train, y_test = train_test_split(
-    X_imputed, y, test_size=0.2, stratify=y, random_state=42
+    X_imputed, y, test_size=0.2, stratify=y, random_state=42  # stratify=y : y의 비율을 유지하면서 데이터를 분할
 )
 
 # 5. 모델 학습
